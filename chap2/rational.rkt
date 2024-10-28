@@ -1,0 +1,32 @@
+#lang racket
+(define (rational x y)
+  (cons x y))
+(define (numer r)
+  (car r))
+(define (denom r)
+  (cdr r))
+(define (rat-add r1 r2)
+  (rational
+   (+(* (numer r1) (denom r2)) (* (numer r2) (denom r1)))
+   (* (denom r1) (denom r2))))
+(define (rat-sub r1 r2)
+  (rational
+   (-(* (numer r1) (denom r2)) (* (numer r2) (denom r1)))
+   (* (denom r1) (denom r2))))
+(define (rat-mul r1 r2)
+  (rational
+   (* (numer r1) (numer r2))
+   (* (denom r1) (denom r2))))
+(define (rat-num r1 r2)
+  (rational
+   (* (numer r1) (denom r2))
+   (* (numer r2) (denom r1))))
+(define (rat-equal? r1 r2)
+  (and (= (numer r1) (numer r2)) (= (denom r1) (denom r2))))
+(define (print-rat r)
+  (newline)
+  (display "(")
+  (display (numer r))
+  (display "/")
+  (display (denom r))
+  (display ")"))
