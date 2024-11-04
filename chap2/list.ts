@@ -4,7 +4,7 @@ export interface List<T> {
     next: List<T> | null,
 }
 
-type ListOrNull<T> = List<T> | null;
+export type ListOrNull<T> = List<T> | null;
 
 export function list<T>(a: T, ...b: Array<T>): List<T> {
     const l: List<T> = {
